@@ -1,0 +1,60 @@
+{
+  "dataset_id": "temporal-rag-demo-v1",
+  "user_email": "test-user@example.com",
+  "queries": [
+    {
+      "id": "ads-current",
+      "question": "What is the latest Facebook Ads budget?",
+      "expected_source_external_ids": ["ads-budget-002"],
+      "expected_facts": ["₹80,000"]
+    },
+    {
+      "id": "ads-historical",
+      "question": "What was the Facebook Ads budget on November 10, 2026?",
+      "expected_source_external_ids": ["ads-budget-001"],
+      "expected_facts": ["₹50,000"]
+    },
+    {
+      "id": "ads-timeline",
+      "question": "When did the Facebook Ads budget change? Give the chronology.",
+      "expected_source_external_ids": ["ads-budget-001", "ads-budget-002"],
+      "expected_facts": ["₹50,000", "₹80,000"]
+    },
+    {
+      "id": "ads-future",
+      "question": "What is the planned Facebook Ads budget for December?",
+      "expected_source_external_ids": ["ads-budget-003"],
+      "expected_facts": ["₹100,000"]
+    },
+    {
+      "id": "project-previous-deadline",
+      "question": "What was the Project Atlas deadline before it moved?",
+      "expected_source_external_ids": ["project-deadline-001", "project-deadline-002"],
+      "expected_facts": ["December 15", "December 22"]
+    },
+    {
+      "id": "subscription-timeline",
+      "question": "Show the chronological changes to the analytics subscription price.",
+      "expected_source_external_ids": ["subscription-price-001", "subscription-price-002"],
+      "expected_facts": ["₹1,200", "₹1,400"]
+    },
+    {
+      "id": "decision-current",
+      "question": "What is the current decision for the analytics database migration?",
+      "expected_source_external_ids": ["business-decision-002"],
+      "expected_facts": ["staged migration"]
+    },
+    {
+      "id": "ignore-unrelated-newer",
+      "question": "What is the latest Facebook Ads budget?",
+      "expected_source_external_ids": ["ads-budget-002"],
+      "expected_facts": ["₹80,000"]
+    },
+    {
+      "id": "historical-network-fact",
+      "question": "How many application nodes were running on November 10, 2026?",
+      "expected_source_external_ids": ["historical-network-fact-001"],
+      "expected_facts": ["three"]
+    }
+  ]
+}

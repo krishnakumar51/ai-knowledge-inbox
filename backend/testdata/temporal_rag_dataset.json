@@ -1,0 +1,117 @@
+{
+  "dataset_id": "temporal-rag-demo-v1",
+  "dataset_name": "Temporal RAG evaluation and IST import sample",
+  "user_email": "test-user@example.com",
+  "items": [
+    {
+      "external_id": "ads-budget-001",
+      "source_type": "note",
+      "title": "Facebook Ads Budget — November 10",
+      "content": "The monthly Facebook Ads budget is ₹50,000.",
+      "created_at": "2026-11-10T10:00:00+05:30",
+      "effective_at": "2026-11-10T00:00:00+05:30",
+      "source_metadata": {"topic": "advertising", "currency": "INR"},
+      "status": "ACTIVE"
+    },
+    {
+      "external_id": "ads-budget-002",
+      "source_type": "note",
+      "title": "Facebook Ads Budget Increase — November 15",
+      "content": "The monthly Facebook Ads budget increased to ₹80,000 on November 15.",
+      "created_at": "2026-11-15T10:00:00+05:30",
+      "effective_at": "2026-11-15T00:00:00+05:30",
+      "source_metadata": {"topic": "advertising", "currency": "INR"},
+      "status": "ACTIVE"
+    },
+    {
+      "external_id": "ads-budget-003",
+      "source_type": "note",
+      "title": "December Facebook Ads Plan",
+      "content": "The planned Facebook Ads budget for December is ₹100,000, effective from December 1.",
+      "created_at": "2026-11-16T10:00:00+05:30",
+      "effective_at": "2026-12-01T00:00:00+05:30",
+      "source_metadata": {"topic": "advertising", "plan": true, "currency": "INR"},
+      "status": "ACTIVE"
+    },
+    {
+      "external_id": "project-deadline-001",
+      "source_type": "note",
+      "title": "Project Atlas Original Deadline",
+      "content": "The Project Atlas launch deadline is December 15, 2026.",
+      "created_at": "2026-11-03T09:30:00+05:30",
+      "effective_at": "2026-11-03T09:30:00+05:30",
+      "source_metadata": {"topic": "project-deadline"},
+      "status": "ACTIVE"
+    },
+    {
+      "external_id": "project-deadline-002",
+      "source_type": "note",
+      "title": "Project Atlas Deadline Change",
+      "content": "The Project Atlas launch deadline moved from December 15 to December 22, 2026.",
+      "created_at": "2026-11-08T14:15:00+05:30",
+      "effective_at": "2026-11-08T14:15:00+05:30",
+      "source_metadata": {"topic": "project-deadline"},
+      "status": "ACTIVE"
+    },
+    {
+      "external_id": "subscription-price-001",
+      "source_type": "note",
+      "title": "Analytics Subscription Price",
+      "content": "The analytics subscription costs ₹1,200 per month.",
+      "created_at": "2026-11-05T11:00:00+05:30",
+      "effective_at": "2026-11-01T00:00:00+05:30",
+      "source_metadata": {"topic": "subscription", "currency": "INR"},
+      "status": "ACTIVE"
+    },
+    {
+      "external_id": "subscription-price-002",
+      "source_type": "note",
+      "title": "Analytics Subscription Price Increase",
+      "content": "The analytics subscription price increased to ₹1,400 per month starting November 12.",
+      "created_at": "2026-11-12T16:45:00+05:30",
+      "effective_at": "2026-11-12T00:00:00+05:30",
+      "source_metadata": {"topic": "subscription", "currency": "INR"},
+      "status": "ACTIVE"
+    },
+    {
+      "external_id": "business-decision-001",
+      "source_type": "note",
+      "title": "Data Migration Decision",
+      "content": "On November 9, the team decided to use a direct migration for the analytics database.",
+      "created_at": "2026-11-09T13:00:00+05:30",
+      "effective_at": "2026-11-09T13:00:00+05:30",
+      "source_metadata": {"topic": "business-decision"},
+      "status": "ACTIVE"
+    },
+    {
+      "external_id": "business-decision-002",
+      "source_type": "note",
+      "title": "Data Migration Decision Revisited",
+      "content": "On November 14, the team replaced the direct migration decision with a staged migration for the analytics database.",
+      "created_at": "2026-11-14T17:20:00+05:30",
+      "effective_at": "2026-11-14T17:20:00+05:30",
+      "source_metadata": {"topic": "business-decision"},
+      "status": "ACTIVE"
+    },
+    {
+      "external_id": "unrelated-football-001",
+      "source_type": "note",
+      "title": "Football Match Result",
+      "content": "The local football club won its match by two goals on November 16.",
+      "created_at": "2026-11-16T22:00:00+05:30",
+      "effective_at": "2026-11-16T22:00:00+05:30",
+      "source_metadata": {"topic": "sports"},
+      "status": "ACTIVE"
+    },
+    {
+      "external_id": "historical-network-fact-001",
+      "source_type": "note",
+      "title": "November 10 Network Fact",
+      "content": "The staging cluster ran three application nodes on November 10.",
+      "created_at": "2026-11-10T18:30:00+05:30",
+      "effective_at": "2026-11-10T18:30:00+05:30",
+      "source_metadata": {"topic": "infrastructure"},
+      "status": "ACTIVE"
+    }
+  ]
+}

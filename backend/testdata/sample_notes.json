@@ -1,0 +1,32 @@
+[
+  {
+    "source_type": "note",
+    "title": "Rust memory safety",
+    "content": "Rust uses ownership, borrowing, and lifetimes to provide memory safety without requiring a garbage collector. Its compiler checks these rules before a program runs."
+  },
+  {
+    "source_type": "note",
+    "title": "Python concurrency",
+    "content": "Python supports concurrency with asyncio for cooperative I/O, threads for blocking I/O, and processes for CPU-bound parallel work. The Global Interpreter Lock affects execution of Python bytecode in many standard builds."
+  },
+  {
+    "source_type": "note",
+    "title": "C++ performance",
+    "content": "C++ can provide predictable, low-level control over memory and execution. Performance still depends on algorithm choice, data layout, compiler optimization, and careful measurement."
+  },
+  {
+    "source_type": "note",
+    "title": "AI infrastructure",
+    "content": "AI infrastructure combines compute, storage, networking, model serving, and observability. Reliable systems measure latency, throughput, resource use, and failure rates across the full inference path."
+  },
+  {
+    "source_type": "note",
+    "title": "PostgreSQL vector search",
+    "content": "PostgreSQL with pgvector stores embedding vectors alongside relational data. Cosine-distance indexes can accelerate nearest-neighbor queries, while PostgreSQL full-text search can contribute keyword matches."
+  },
+  {
+    "source_type": "note",
+    "title": "Bread baking",
+    "content": "Bread dough develops structure as flour hydrates and gluten forms. Fermentation produces gas and flavor, while oven heat expands the loaf and sets its crumb."
+  }
+]
