@@ -265,7 +265,7 @@ async def test_query_service_mocks_provider_and_rewrites_only_retrieved_citation
     class MockProvider:
         async def generate(self, *, question, context, history=None):
             assert question == "What is the fact?"
-            assert f"item_id={item_id}" in context
+            assert "item_id" not in context and "[1] title: Source title" in context
             return "The fact is relevant [1], fabricated [2]."
 
     monkeypatch.setattr(generation, "get_llm_provider", lambda: MockProvider())

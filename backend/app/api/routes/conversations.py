@@ -8,15 +8,18 @@ from sqlalchemy.orm import selectinload
 
 from app.api.dependencies import current_user
 from app.db.session import get_db
-from app.models import Conversation, Message, MessageRole, User
+from app.models import Conversation, Item, Message, MessageRole, User
+from app.models.item import ItemStatus
 from app.schemas.conversation import (
     ChatResponse,
     ConversationCreate,
     ConversationDetail,
+    ConversationRename,
     ConversationResponse,
     MessageCreate,
 )
 from app.services.generation import QueryService
+from app.services.titles import DEFAULT_TITLE, generate_title
 
 router = APIRouter(prefix="/conversations")
 
@@ -64,6 +67,22 @@ async def get_conversation(
     return conversation
 
 
+@router.patch("/{conversation_id}", response_model=ConversationResponse)
+async def rename_conversation(
+    conversation_id: UUID,
+    payload: ConversationRename,
+    db: AsyncSession = Depends(get_db),
+    user: User = Depends(current_user),
+):
+    conversation = await _owned_conversation(db, user.id, conversation_id)
+    if conversation is None:
+        raise HTTPException(404, "Conversation not found")
+    conversation.title = payload.title
+    await db.commit()
+    await db.refresh(conversation)
+    return conversation
+
+
 @router.delete("/{conversation_id}", status_code=status.HTTP_204_NO_CONTENT)
 async def delete_conversation(
     conversation_id: UUID, db: AsyncSession = Depends(get_db), user: User = Depends(current_user)
@@ -94,8 +113,16 @@ async def send_message(
     db.add(user_message)
     await db.flush()
     conversation.updated_at = datetime.now(UTC)
-    if conversation.title == "New conversation":
-        conversation.title = payload.content.strip()[:300]
+    if conversation.title == DEFAULT_TITLE:
+        # Generated once from the first question; renamed or already-titled conversations are left alone.
+        candidates = (
+            await db.execute(
+                select(Item.id, Item.title, Item.source_metadata).where(
+                    Item.user_id == user.id, Item.status == ItemStatus.ACTIVE
+                )
+            )
+        ).all()
+        conversation.title = generate_title(payload.content, [(r[0], r[1], r[2]) for r in candidates])
     # Keep the submitted question even if embeddings or chat generation fail.
     # The assistant response is committed separately only after generation succeeds.
     await db.commit()

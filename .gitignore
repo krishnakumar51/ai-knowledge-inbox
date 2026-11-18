@@ -5,7 +5,7 @@ __pycache__/
 
 # C extensions
 *.so
-
+*.env
 # Distribution / packaging
 .Python
 build/
@@ -220,3 +220,14 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Internal working notes, handoffs and temporary reports (kept locally only)
+working-docs/
+
+# Deployment / build output
+.vercel/
+.output/
+node_modules/
+.wrangler/
+.tanstack/
+*.tsbuildinfo

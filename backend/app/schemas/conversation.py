@@ -1,13 +1,25 @@
 from datetime import datetime
 from uuid import UUID
 
-from pydantic import ConfigDict, Field
+from pydantic import ConfigDict, Field, field_validator
 
 from app.schemas.common import APIModel
 
 
 class ConversationCreate(APIModel):
     title: str = Field(default="New conversation", min_length=1, max_length=300)
+
+
+class ConversationRename(APIModel):
+    title: str = Field(min_length=1, max_length=100)
+
+    @field_validator("title")
+    @classmethod
+    def clean_title(cls, value: str) -> str:
+        cleaned = " ".join(value.split())
+        if not cleaned or any(not char.isprintable() for char in cleaned):
+            raise ValueError("Title must contain printable text")
+        return cleaned
 
 
 class MessageCreate(APIModel):

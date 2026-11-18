@@ -36,6 +36,8 @@ class Settings(BaseSettings):
     chunk_overlap: int = Field(default=120, ge=0)
     retrieval_top_k: int = Field(default=5, gt=0)
     retrieval_min_score: float = Field(default=0.15, ge=0, le=1)
+    # Vector hits must be within this similarity distance of the best hit (keyword hits are exempt).
+    retrieval_relevance_margin: float = Field(default=0.12, ge=0, le=1)
     log_level: str = "INFO"
     cors_origins: list[str] = ["http://localhost:3000"]
 

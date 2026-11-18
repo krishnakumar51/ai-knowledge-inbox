@@ -11,7 +11,7 @@ from app.core.exceptions import ServiceUnavailableError
 from app.core.security import create_access_token, hash_password, require_auth_configuration, verify_password
 from app.db.session import get_db
 from app.models import User
-from app.schemas.auth import Credentials, TokenResponse, UserResponse
+from app.schemas.auth import Credentials, ProfileUpdate, TokenResponse, UserResponse
 
 router = APIRouter(prefix="/auth")
 
@@ -63,4 +63,15 @@ async def login(payload: Credentials, db: AsyncSession = Depends(get_db)):
 
 @router.get("/me", response_model=UserResponse)
 async def me(user: User = Depends(current_user)):
+    return user
+
+
+@router.patch("/me", response_model=UserResponse)
+async def update_me(
+    payload: ProfileUpdate, db: AsyncSession = Depends(get_db), user: User = Depends(current_user)
+):
+    # Always operates on the authenticated user; email and password cannot be changed here.
+    user.display_name = payload.display_name
+    await db.commit()
+    await db.refresh(user)
     return user

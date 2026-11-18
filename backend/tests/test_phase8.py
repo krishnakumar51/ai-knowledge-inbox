@@ -84,3 +84,37 @@ def test_ai_health_distinguishes_configuration_from_live_connectivity():
     assert body["provider_connectivity"] == "not_tested"
     assert body["chat_generation_test"] == "not_tested"
 
+
+
+def test_profile_update_schema_cleans_name_and_rejects_email_changes():
+    from pydantic import ValidationError
+
+    from app.schemas.auth import ProfileUpdate
+
+    assert ProfileUpdate(display_name="  Krishna   Kumar ").display_name == "Krishna Kumar"
+    assert ProfileUpdate(display_name="   ").display_name is None
+    with pytest.raises(ValidationError):
+        ProfileUpdate(display_name="x" * 81)
+    with pytest.raises(ValidationError):
+        ProfileUpdate(display_name="ok", email="other@example.com")
+    with pytest.raises(ValidationError):
+        ProfileUpdate(display_name="bad\x00name")
+
+
+def test_profile_endpoint_requires_authentication():
+    response = TestClient(app).patch("/api/v1/auth/me", json={"display_name": "Someone"})
+    assert response.status_code == 401
+
+
+def test_conversation_titles_are_short_and_rename_requires_auth():
+    from uuid import uuid4
+
+    from app.services.titles import generate_title
+
+    library = [(uuid4(), "Project Atlas - Initial Budget", {"project": "Project Atlas"})]
+    assert generate_title("What's the budget revision for Project Atlas?", library).endswith("Budget Revision")
+    assert generate_title("What's the budget revision for Project Atlas?", library).startswith("Project Atlas")
+    assert generate_title("please give my portfolio website") == "Portfolio Website"
+    assert len(generate_title("x " * 100)) <= 60
+    response = TestClient(app).patch("/api/v1/conversations/00000000-0000-0000-0000-000000000000", json={"title": "A"})
+    assert response.status_code == 401

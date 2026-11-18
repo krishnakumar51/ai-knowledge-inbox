@@ -1,0 +1,125 @@
+{
+  "dataset_name": "ai_knowledge_inbox_temporal_test",
+  "description": "Synthetic Project Atlas notes for testing temporal retrieval, historical facts, and latest-state queries.",
+  "target_account": {
+    "email": "godkrishnasskal@gmail.com",
+    "instruction": "Import into this existing account only. Do not create another account."
+  },
+  "timestamp_policy": {
+    "effective_at": "Use supplied ISO 8601 timestamps exactly, including +05:30.",
+    "created_at": "Keep the actual import timestamp; do not backdate it.",
+    "timezone": "Asia/Kolkata"
+  },
+  "notes": [
+    {
+      "title": "Project Atlas - Initial Budget",
+      "content": "The initial approved budget for Project Atlas is INR 500000. This budget covers development, hosting, testing, and initial launch expenses.",
+      "effective_at": "2026-09-01T10:00:00+05:30",
+      "metadata": {
+        "topic": "project_budget",
+        "project": "Project Atlas",
+        "version": 1,
+        "status": "superseded"
+      }
+    },
+    {
+      "title": "Project Atlas - Revised Budget",
+      "content": "The Project Atlas budget has been revised from INR 500000 to INR 750000. The additional allocation is for expanded testing and infrastructure requirements. The revised budget replaces the earlier budget.",
+      "effective_at": "2026-10-10T14:30:00+05:30",
+      "metadata": {
+        "topic": "project_budget",
+        "project": "Project Atlas",
+        "version": 2,
+        "status": "current"
+      }
+    },
+    {
+      "title": "Project Atlas - Original Launch Date",
+      "content": "The original planned launch date for Project Atlas is 2026-11-10. The team expects the initial release to include authentication, knowledge ingestion, and basic search.",
+      "effective_at": "2026-09-05T11:00:00+05:30",
+      "metadata": {
+        "topic": "launch_schedule",
+        "project": "Project Atlas",
+        "version": 1,
+        "status": "superseded"
+      }
+    },
+    {
+      "title": "Project Atlas - Launch Postponement",
+      "content": "The Project Atlas launch has been postponed from 2026-11-10 to 2026-12-05 because additional retrieval testing is required. The new planned launch date is 2026-12-05.",
+      "effective_at": "2026-11-02T16:00:00+05:30",
+      "metadata": {
+        "topic": "launch_schedule",
+        "project": "Project Atlas",
+        "version": 2,
+        "status": "current"
+      }
+    },
+    {
+      "title": "Project Atlas - Initial Technology Stack",
+      "content": "The initial technology stack for Project Atlas consists of React for the frontend, FastAPI for the backend, and PostgreSQL for persistent storage.",
+      "effective_at": "2026-09-12T09:30:00+05:30",
+      "metadata": {
+        "topic": "technology_stack",
+        "project": "Project Atlas",
+        "version": 1,
+        "status": "superseded"
+      }
+    },
+    {
+      "title": "Project Atlas - Vector Search Added",
+      "content": "The Project Atlas architecture has been expanded to use PostgreSQL with pgvector for vector similarity search. The existing PostgreSQL database remains in use, with pgvector supporting semantic retrieval.",
+      "effective_at": "2026-10-18T13:15:00+05:30",
+      "metadata": {
+        "topic": "technology_stack",
+        "project": "Project Atlas",
+        "version": 2,
+        "status": "current"
+      }
+    },
+    {
+      "title": "Project Atlas - Initial Team Ownership",
+      "content": "During the initial planning phase, the backend implementation and API integration were assigned to the platform team. The frontend implementation was assigned to the product interface team.",
+      "effective_at": "2026-09-20T12:00:00+05:30",
+      "metadata": {
+        "topic": "team_ownership",
+        "project": "Project Atlas",
+        "version": 1,
+        "status": "superseded"
+      }
+    },
+    {
+      "title": "Project Atlas - Ownership Reassignment",
+      "content": "From November 1, the product engineering team owns both backend API integration and frontend implementation for Project Atlas. The earlier split ownership arrangement is no longer current.",
+      "effective_at": "2026-11-01T09:00:00+05:30",
+      "metadata": {
+        "topic": "team_ownership",
+        "project": "Project Atlas",
+        "version": 2,
+        "status": "current"
+      }
+    },
+    {
+      "title": "Project Atlas - Initial Retrieval Target",
+      "content": "The initial retrieval quality target for Project Atlas is 80 percent. This target applies to the first internal evaluation round.",
+      "effective_at": "2026-10-01T10:45:00+05:30",
+      "metadata": {
+        "topic": "retrieval_quality",
+        "project": "Project Atlas",
+        "version": 1,
+        "status": "superseded"
+      }
+    },
+    {
+      "title": "Project Atlas - Updated Retrieval Target",
+      "content": "The retrieval quality target for Project Atlas has been increased from 80 percent to 92 percent. The updated target will be used for the evaluation scheduled on 2026-11-25.",
+      "effective_at": "2026-11-15T17:30:00+05:30",
+      "metadata": {
+        "topic": "retrieval_quality",
+        "project": "Project Atlas",
+        "version": 2,
+        "status": "current"
+      }
+    }
+  ]
+}
